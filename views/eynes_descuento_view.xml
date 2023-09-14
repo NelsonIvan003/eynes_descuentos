@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista Tree -->
+        <record id="view_eynes_descuento_tree" model="ir.ui.view">
+            <field name="name">eynes.descuento.tree</field>
+            <field name="model">eynes.descuento</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" width="200"/>
+                    <field name="rango_min" width="100"/>
+                    <field name="rango_max" width="100"/>
+                    <field name="descuento" width="100"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Form -->
+        <record id="view_eynes_descuento_form" model="ir.ui.view">
+            <field name="name">eynes.descuento.form</field>
+            <field name="model">eynes.descuento</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--
+                    <header>
+                        <button string="Editar" type="object" name="action_edit" icon="fa-pencil-square-o"/>
+                        <button string="Eliminar" type="object" name="action_delete" icon="fa-trash-o"/>
+                    </header>
+                    -->
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="rango_min"/>
+                            <field name="rango_max"/>
+                            <field name="descuento"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acciones de ventana -->
+        <record id="action_eynes_descuento" model="ir.actions.act_window">
+            <field name="name">Descuentos Configurables por Escalas</field>
+            <field name="res_model">eynes.descuento</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menú de la aplicación -->
+        <menuitem id="menu_eynes_descuento"
+                  name="Descuentos Configurables"
+                  sequence="20"/>
+
+        <menuitem id="menu_eynes_descuento_list"
+                  name="Descuentos por Escalas"
+                  parent="menu_eynes_descuento"
+                  action="action_eynes_descuento"/>
+    </data>
+</odoo>
